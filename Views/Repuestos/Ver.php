@@ -6,10 +6,10 @@ require_once 'Views/sidebar.php';
 
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a class="text-danger" href="<?= Base_url ?>repuestos/crear">Crear repuestos</a>
+                <a class="text-info" href="<?= Base_url ?>repuestos/crear">Crear repuestos</a>
             </li>
             <li class="breadcrumb-item active">
-                <a class="text-danger" href="<?= Base_url ?>repuestos/gestionar">Ver tabla repuestos</a>
+                <a class="text-info" href="<?= Base_url ?>repuestos/gestionar">Ver tabla repuestos</a>
             </li>
         </ol>
 

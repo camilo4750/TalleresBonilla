@@ -14,14 +14,16 @@
 
 
 /*FOOTER*/
-#footer{
+.footer{
+    border: 30px;
+    margin-top: 30px;
     align-self: flex-end;
     width: 100%;
     text-align: center;
     padding-top:10px;
     padding-bottom: 10px;
-    color: white;
-    background: rgba(37, 37, 35,  0.7);
-    border-top: 4px solid #fd7e14;
+    color: black;
+    background: #DFDFDF;
+    border-top: 4px solid #117a8b;
 }
 

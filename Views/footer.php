@@ -4,6 +4,10 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
+<footer class="footer rounded">
+    <h5 class="">© Derechos de autor Talleres Bonilla. Todos los derechos reservados</h5>
+    <h5 class="">Desarrollado por </h5>
+</footer>
 
 <!-- Bootstrap core JavaScript-->
 <script src="<?=Base_url?>vendor/jquery/jquery.min.js"></script>

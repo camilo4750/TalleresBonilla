@@ -2,10 +2,10 @@
     <div class="container-fluid">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a class="text-danger" href="<?= Base_url ?>marca/crear">Crear marca</a>
+                <a class="text-info" href="<?= Base_url ?>marca/crear">Crear marca</a>
             </li>
             <li class="breadcrumb-item active">
-                <a class="text-danger" href="<?= Base_url ?>marca/gestionar">Ver tabla marca</a>
+                <a class="text-info" href="<?= Base_url ?>marca/gestionar">Ver tabla marca</a>
             </li>
         </ol>
         <div class="card mb-3">

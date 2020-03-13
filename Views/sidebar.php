@@ -20,7 +20,7 @@
     <link href="<?=Base_url?>vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
     <link href="<?=Base_url?>assets/css/sb-admin.css" rel="stylesheet">
-    <link href="<?=Base_url?>assets/css/Style.css" rel="stylesheet">
+    <link href="<?=Base_url?>assets/css/Style.css?v=<?php echo time(); ?>" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
 
 </head>

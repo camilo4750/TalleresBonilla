@@ -2,10 +2,10 @@
     <div class="container-fluid">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a class="text-danger" href="<?= Base_url ?>modelo/crear">Crear modelo</a>
+                <a class="text-info" href="<?= Base_url ?>modelo/crear">Crear modelo</a>
             </li>
             <li class="breadcrumb-item active">
-                <a class="text-danger" href="<?= Base_url ?>modelo/gestionar">Ver tabla modelo</a>
+                <a class="text-info" href="<?= Base_url ?>modelo/gestionar">Ver tabla modelo</a>
             </li>
         </ol>
         <div class="card mb-3">

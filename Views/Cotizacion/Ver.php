@@ -6,10 +6,10 @@ require_once 'Views/sidebar.php';
 
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a class="text-danger" href="<?= Base_url ?>persona/crear">Crear cotizacion</a>
+                <a class="text-info" href="<?= Base_url ?>persona/crear">Crear cotizacion</a>
             </li>
             <li class="breadcrumb-item active">
-                <a class="text-danger" href="<?= Base_url ?>persona/gestionar">Ver tabla cotizacion</a>
+                <a class="text-info" href="<?= Base_url ?>persona/gestionar">Ver tabla cotizacion</a>
             </li>
         </ol>
 

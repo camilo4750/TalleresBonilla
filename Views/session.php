@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="<?=Base_url?>assets/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="<?=Base_url?>assets/css/login.css" rel="stylesheet" type="text/css">
+    <link href="<?=Base_url?>assets/css/login.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css">
     <link href="<?=Base_url?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <title>Inicio session</title>
 </head>
-<body style="background-image: url(../assets/Img/1385.jpg);">
+<body>
 <?php if (isset($_SESSION['Agregado'])) : ?>
     <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
         <strong><?=$_SESSION['Agregado']?></strong>
@@ -34,8 +35,8 @@
         <center>
             <div class="login mb-5">
                 <article class="fondo">
-                    <img src="../assets/Img/tuerca.png" alt="usuario">
-                    <h3>Inicio de Sesión</h3>
+                    <img src="<?=Base_url?>assets/Img/tuerca.png" class="img-fluid" alt="Responsive image">
+                    <h3>Talleres Bonilla</h3>
                     <?php if (isset($_SESSION['Error_Login'])) : ?>
                         <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
                             <strong><?= $_SESSION['Error_Login'] ?></strong>
@@ -45,8 +46,8 @@
                         </div>
                     <?php endif; ?>
                     <?php Utilidades::DeleteSession(); ?>
-                    <form action="<?= Base_url ?>persona/login" method="post">
-                        <span><i class="fas fa-users"></i></span><input class="inp" type="text" name="Email_P" required><br>
+                    <form action="<?= Base_url ?>registro/login" method="post">
+                        <span><i class="fas fa-users"></i></span><input class="inp" type="text" name="Email" required><br>
 
                         <span><i class="fas fa-key"></i></span><input class="inp" type="password" name="Password" required><br>
                         <a href="" class="he">He olvidado mi contraseña</a>
@@ -59,7 +60,7 @@
 </div>
 
     <?php if (!isset($Registro)) :?>
-        <button type="button" class="btn btn-success mt-5 mb-3 ml-3" style="height: 50px; width: 200px;" data-toggle="modal" data-target="#exampleModalScrollable">
+        <button type="button" class="btn btn-success mb-3" style="height: 50px; width: 200px; margin-left: 650px" data-toggle="modal" data-target="#exampleModalScrollable">
             Agregar Usuario
         </button>
 

@@ -2,10 +2,10 @@
     <div class="container-fluid">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a class="text-danger" href="<?= Base_url ?>servicio/crear">Crear servicio</a>
+                <a class="text-info" href="<?= Base_url ?>servicio/crear">Crear servicio</a>
             </li>
             <li class="breadcrumb-item active">
-                <a class="text-danger" href="<?= Base_url ?>servicio/gestionar">Ver tabla servicios</a>
+                <a class="text-info" href="<?= Base_url ?>servicio/gestionar">Ver tabla servicios</a>
             </li>
         </ol>
         <div class="card mb-3">
