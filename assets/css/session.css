@@ -1,0 +1,102 @@
+body
+{
+   margin: 0;
+   padding: 0;
+
+
+}
+
+.titulo
+{
+   text-align: center;
+   padding: 40px 0 50px;
+}
+
+.titulo h2
+{
+   margin: 0;
+   padding: 0;
+   color: #000000;
+   text-transform: uppercase;
+   font-size: 36px;
+}
+
+.contenedor{
+   width: 80%;
+   height: 400px;
+   background: #ffffff;
+   margin: 0 auto;
+   border: 2px solid #fff;
+   box-shadow: 0 15px 40px rgba(0,0,0, .5);
+}
+
+.contenedor .izquierda
+{
+   float: left;
+   width: 50%;
+   height: 397px;
+   background: url("../Img/caso-practico-marketing-online-taller-mecanico.jpg");
+   background-size: cover;
+   box-sizing: border-box;
+}
+
+.contenedor .derecha
+{
+   float: right;
+   width: 50%;
+   height: 400px;
+   box-sizing: border-box;
+}
+
+.formBox
+{
+   width: 100%;
+   padding: 100px 200px;
+   box-sizing: border-box;
+   height: 397px;
+   background: #fff;
+}
+
+.formBox p
+{
+   margin: 0;
+   padding: 0;
+   font-weight: bold;
+   color: #dc3545;
+}
+
+.formBox input
+{
+   width: 100%;
+   margin-bottom: 20px;
+
+}
+
+.formBox input[type="text"],
+.formBox input[type="password"]
+{
+   border: none;
+   border-bottom: 2px solid #dc3545;
+   outline: none;
+   height: 40px;
+}
+
+.formBox input[type="text"]:focus,
+.formBox input[type="password"]:focus
+{
+   border-bottom: 2px solid #721c24;
+}
+
+.formBox input[type="submit"]
+{
+   border: none;
+   outline: none;
+   height: 40px;
+   width: 220px;
+   color: white;
+   margin-right: 20px;
+   background: black;
+}
+.formBox input[type="submit"]:hover{
+   background: #721c24;
+}
