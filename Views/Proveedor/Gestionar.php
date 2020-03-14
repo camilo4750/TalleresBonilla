@@ -68,7 +68,11 @@ require_once 'Views/sidebar.php';
                             <td><?= $Pro->Direccion ?></td>
                             <td><?= $Pro->Fecha ?></td>
                             <td><?= $Pro->Correo ?></td>
-                            <td><?= $Pro->Estado ?></td>
+                            <?php if ($Pro->Estado == 'Activo') : ?>
+                                <td class="text-success"><?= $Pro->Estado ?></td><i class="fas fa-bell"></i></a>
+                            <?php else : ?>
+                                <td class="text-danger"><?= $Pro->Estado ?></td>
+                            <?php endif; ?>
                             <td>
                                 <a href="<?=Base_url?>proveedor/crear&id=<?=$Pro->IdPr?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                                 <a href="<?=Base_url?>proveedor/ver&id=<?=$Pro->IdPr?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>
@@ -102,5 +106,5 @@ require_once 'Views/sidebar.php';
         </div>
         <div class="card-footer small text-muted"></div>
     </div>
+    <?php require_once 'Views/footer.php'; ?>
 </div>
-<?php require_once 'Views/footer.php'; ?>

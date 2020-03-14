@@ -66,5 +66,5 @@
         </div>
         <div class="card-footer small text-muted"></div>
     </div>
+    <?php require_once 'Views/footer.php'; ?>
 </div>
-<?php require_once 'Views/footer.php'; ?>

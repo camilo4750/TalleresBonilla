@@ -113,10 +113,21 @@ class Registro
         return $result;
     }
 
-
     Public function All()
     {
         $Registro = $this->db->query("SELECT * FROM registro");
+        return $Registro;
+    }
+
+    Public function AllR()
+    {
+        $Registro = $this->db->query("SELECT COUNT(idR) AS 'Total' FROM registro ");
+        return $Registro->fetch_object();
+    }
+
+    Public function Allone()
+    {
+        $Registro = $this->db->query("SELECT * FROM registro WHERE idR = {$this->getIdR()}");
         return $Registro->fetch_object();
     }
 
@@ -133,5 +144,25 @@ class Registro
         }
         return $guardado;
 
+    }
+
+    public function Update()
+    {
+        $SQL = "UPDATE registro SET Nombre = '{$this->getNombre()}', Email = '{$this->getEmail()}', Rol = '{$this->getRol()}'  ";
+
+        if ($this->getPassword() != null ) {
+            $SQL .= ", Password = '{$this->getPassword()}'";
+        }
+
+        $SQL .= " WHERE idR = {$this->idR};";
+
+        $registro = $this->db->query($SQL);
+
+        $Editado = false;
+
+        if ($registro) {
+            $Editado = true;
+        }
+        return $Editado;
     }
 }

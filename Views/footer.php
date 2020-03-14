@@ -5,8 +5,8 @@
 </a>
 
 <footer class="footer rounded">
-    <h5 class="">© Derechos de autor Talleres Bonilla. Todos los derechos reservados</h5>
-    <h5 class="">Desarrollado por </h5>
+    <h6 class="">© Derechos de autor Talleres Bonilla. Todos los derechos reservados</h6>
+    <h6 class="">Desarrollado por </h6>
 </footer>
 
 <!-- Bootstrap core JavaScript-->

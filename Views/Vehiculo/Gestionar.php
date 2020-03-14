@@ -68,7 +68,12 @@ require_once 'Views/sidebar.php';
                                 <td><?= $vehiculo->Marca ?></td>
                                 <td><a href="<?=Base_url?>persona/ver&id=<?=$vehiculo->Persona_idP?>" class="text-success"><?= $vehiculo->Persona ?></a></td>
                                 <td><?= $vehiculo->Fecha ?></td>
-                                <td><?= $vehiculo->Estado ?></td>
+                                <?php if ($vehiculo->Estado == 'Activo') : ?>
+                                    <td class="text-success"><?= $vehiculo->Estado ?></td></a>
+                                <?php else : ?>
+                                    <td class="text-danger"><?= $vehiculo->Estado ?></td>
+                                <?php endif; ?>
+
                                 <td>
                                     <a href="<?=Base_url?>vehiculo/crear&id=<?=$vehiculo->id?>" data-toggle="tooltip" data-placement="top" title="Editar" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                                     <a href="<?=Base_url?>vehiculo/ver&id=<?=$vehiculo->id?>" data-toggle="tooltip" data-placement="top" title="Ver" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>
@@ -102,5 +107,5 @@ require_once 'Views/sidebar.php';
             </div>
             <div class="card-footer small text-muted"></div>
         </div>
+        <?php require_once 'Views/footer.php'; ?>
     </div>
-<?php require_once 'Views/footer.php'; ?>

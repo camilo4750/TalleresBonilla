@@ -6,10 +6,10 @@ require_once 'Views/sidebar.php';
 
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a class="text-info" href="<?=Base_url?>servicio/crear">Crear servicio</a>
+                <a class="text-info" href="<?=Base_url?>registro/crear">Crear Usuario</a>
             </li>
             <li class="breadcrumb-item active">
-                <a class="text-info" href="<?=Base_url?>servicio/gestionar">Ver tabla servicios</a>
+                <a class="text-info" href="<?=Base_url?>registro/gestionar">Ver tabla Usuarios</a>
             </li>
         </ol>
 
@@ -47,21 +47,23 @@ require_once 'Views/sidebar.php';
                     <table id="example" class="display table responsive nowrap table-striped table-bordered" style="width:100%" >
                         <thead  class="thead-dark">
                         <tr>
-                            <th>ID</th>
-                            <th>Servicio</th>
-                            <th>Descripcion</th>
+
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Rol</th>
                             <th>Acciones</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <?php while ($servicio = $Servicio->fetch_object()) :?>
+                        <?php while ($registro = $Registro->fetch_object()) :?>
                             <tr>
-                                <td><?= $servicio->Id ?></td>
-                                <td><?= $servicio->Nombre ?></td>
-                                <td><?= $servicio->Descripcion ?></td>
+
+                                <td><?= $registro->Nombre ?></td>
+                                <td><?= $registro->Email ?></td>
+                                <td><?= $registro->Rol ?></td>
                                 <td>
-                                    <a href="<?=Base_url?>servicio/crear&id=<?=$servicio->Id?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                    <a href="<?=Base_url?>servicio/eliminar&id=<?=$servicio->Id?>" class="btn btn-danger btn-sm" onClick=mi_alerta()><i class="fas fa-trash-alt"></i></a>
+                                    <a href="<?=Base_url?>registro/crear&id=<?=$registro->idR?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                    <a href="<?=Base_url?>registro/delete&id=<?=$registro->idR?>" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                         <?php endwhile; ?>
@@ -69,10 +71,10 @@ require_once 'Views/sidebar.php';
 
                         <tfoot  class="thead-dark">
                         <tr>
-                            <th>ID</th>
-                            <th>Servicio</th>
-                            <th>Descripcion</th>
-                            <th>Acciones</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Rol</th>
+                            <th>Acciones</th
                         </tr>
                         </tfoot>
                         <tbody>
@@ -84,8 +86,3 @@ require_once 'Views/sidebar.php';
         </div>
         <?php require_once 'Views/footer.php'; ?>
     </div>
-<SCRIPT LANGUAGE="JavaScript">
-function mi_alerta () {
-alert ("Esta seguro de eliminar este servicio.? recuerde que si este servicio esta en uso no podra ser eliminado");
-}
-</SCRIPT>

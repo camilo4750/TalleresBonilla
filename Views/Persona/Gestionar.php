@@ -69,7 +69,11 @@ require_once 'Views/sidebar.php';
                                 <td><?= $persona->Numero ?></td>
                                 <td><?= $persona->Direccion ?></td>
                                 <td><?= $persona->Rol ?></td>
-                                <td><?= $persona->Estado ?></td>
+                                <?php if ($persona->Estado == 'Activo') : ?>
+                                    <td class="text-success"><?= $persona->Estado ?></td><i class="fas fa-bell"></i></a>
+                                <?php else : ?>
+                                    <td class="text-danger"><?= $persona->Estado ?></td>
+                                <?php endif; ?>
                                 <td><?= $persona->Municipio ?></td>
                                 <td>
                                     <a href="<?=Base_url?>persona/crear&id=<?=$persona->idP?>" data-toggle="tooltip" data-placement="top" title="Editar"  class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
@@ -106,5 +110,5 @@ require_once 'Views/sidebar.php';
             </div>
             <div class="card-footer small text-muted"></div>
         </div>
+        <?php require_once 'Views/footer.php'; ?>
     </div>
-<?php require_once 'Views/footer.php'; ?>

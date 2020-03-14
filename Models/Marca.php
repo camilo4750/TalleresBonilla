@@ -78,4 +78,16 @@ class Marca
         }
         return $guardado;
     }
+
+    public function delete()
+    {
+        $Sql = "DELETE FROM marca WHERE idMarca = {$this->idMarca}";
+        $delete = $this->db->query($Sql);
+
+        $Eliminado = false;
+        if ($delete) {
+            $Eliminado = true;
+        }
+        return $Eliminado;
+    }
 }

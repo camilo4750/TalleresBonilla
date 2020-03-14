@@ -50,4 +50,19 @@ class ModeloController
     }
     header("Location:" . Base_url . "modelo/gestionar");
 }
+
+    public function eliminar()
+    {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $modelo = new Modelo();
+            $modelo->setIdM($id);
+            $Borrar = $modelo->delete();
+
+            if ($Borrar) {
+                $_SESSION['Borrado'] = "El Modelo se ha borrado correctamente";
+            }
+        }
+        header("Location:" . Base_url . "modelo/gestionar");
+    }
 }

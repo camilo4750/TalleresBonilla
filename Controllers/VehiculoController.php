@@ -59,6 +59,31 @@ class VehiculoController
         header("Location:" . Base_url . "vehiculo/gestionar");
     }
 
+    public function hacer()
+    {
+        if (isset($_POST)) {
+            $Placa = isset($_POST['Placa']) ? $_POST['Placa'] : false;
+            $Color = isset($_POST['Color']) ? $_POST['Color'] : false;
+            $Modelo_Id = isset($_POST['Modelo_IdM']) ? $_POST['Modelo_IdM'] : false;
+            $Marca_id = isset($_POST['Marca_idMarca']) ? $_POST['Marca_idMarca'] : false;
+            $Persona_id = isset($_POST['Persona_idP']) ? $_POST['Persona_idP'] : false;
+
+            if ($Placa && $Color && $Modelo_Id && $Marca_id && $Persona_id) {
+                $vehiculo = new Vehiculo();
+                $vehiculo->setPlaca($Placa);
+                $vehiculo->setColor($Color);
+                $vehiculo->setModeloId($Modelo_Id);
+                $vehiculo->setMarcaIdMarca($Marca_id);
+                $vehiculo->setPersonaIdP($Persona_id);
+                $Save = $vehiculo->Save();
+                if ($Save) {
+                    $_SESSION['Agregado'] = "El Automovil se ha agregado correctamente";
+                }
+            }
+        }
+        header("Location:" . Base_url . "cotizacion/crear");
+    }
+
     public function ver()
     {
         if (isset($_GET['id'])) {

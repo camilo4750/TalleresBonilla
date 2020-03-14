@@ -50,4 +50,19 @@ class MarcaController
         }
         header("Location:" . Base_url . "marca/gestionar");
     }
+
+    public function eliminar()
+    {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $marca = new Marca();
+            $marca->setIdMarca($id);
+            $Borrar = $marca->delete();
+
+            if ($Borrar) {
+                $_SESSION['Borrado'] = "La Marca se ha borrado correctamente";
+            }
+        }
+        header("Location:" . Base_url . "marca/gestionar");
+    }
 }

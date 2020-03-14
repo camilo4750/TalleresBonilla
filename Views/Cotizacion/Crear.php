@@ -20,8 +20,18 @@
 
             <?php $AccionUrl = Base_url . "cotizacion/save" ?>
 <?php  endif; ?>
-            
+
+
         <div class="card-body">
+            <?php if (isset($_SESSION['Agregado'])) : ?>
+                <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                    <strong><?=$_SESSION['Agregado']?></strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php endif; ?>
+            <?php Utilidades::DeleteSession(); ?>
             <form action="<?=$AccionUrl?>" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="col">
@@ -124,7 +134,7 @@
         </button>
       </div>
       <div class="modal-body">
-          <form action="<?=Base_url?>persona/save" method="POST">
+          <form action="<?=Base_url?>persona/hacer" method="POST">
               <div class="form-row">
                   <div class="col">
                       <label>Nombre Completo</label>
@@ -195,7 +205,7 @@
         </button>
       </div>
       <div class="modal-body">
-          <form action="<?=Base_url?>vehiculo/save" method="POST">
+          <form action="<?=Base_url?>vehiculo/hacer" method="POST">
               <div class="form-row">
                   <div class="col">
                       <label>Color</label>
@@ -272,7 +282,7 @@
                       </button>
                   </div>
                   <div class="modal-body">
-                      <form action="<?=Base_url?>repuestos/save" method="POST">
+                      <form action="<?=Base_url?>repuestos/hacer" method="POST">
                           <div class="form-row">
                               <div class="col">
                                   <label>Repuestos</label>
@@ -325,6 +335,6 @@
 </div>
 
   </div>
+    <?php require_once 'Views/footer.php'; ?>
     </div>
 
-<?php require_once 'Views/footer.php'; ?>

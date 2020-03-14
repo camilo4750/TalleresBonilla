@@ -65,7 +65,11 @@ require_once 'Views/sidebar.php';
                                 <td><?= $repuestos->Total ?></td>
                                 <td><?= $repuestos->Fecha ?></td>
                                 <td><?= $repuestos->Garantia ?></td>
-                                <td><?= $repuestos->Estado ?></td>
+                                <?php if ($repuestos->Estado == 'Activo') : ?>
+                                    <td class="text-success"><?= $repuestos->Estado ?></td><i class="fas fa-bell"></i></a>
+                                <?php else : ?>
+                                    <td class="text-danger"><?= $repuestos->Estado ?></td>
+                                <?php endif; ?>
                                 <td><a href="<?=Base_url?>vehiculo/ver&id=<?=$repuestos->Vehiculo_id?>" class="text-success"><?= $repuestos->Placa ?></a></td>
                                 <td>
                                     <a href="<?=Base_url?>repuestos/crear&id=<?=$repuestos->IdR?>" data-toggle="tooltip" data-placement="top" title="Editar"  class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
@@ -99,5 +103,5 @@ require_once 'Views/sidebar.php';
             </div>
             <div class="card-footer small text-muted"></div>
         </div>
+        <?php require_once 'Views/footer.php'; ?>
     </div>
-<?php require_once 'Views/footer.php'; ?>

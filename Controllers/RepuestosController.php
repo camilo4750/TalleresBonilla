@@ -59,6 +59,35 @@ class RepuestosController
         header("Location:" . Base_url . "repuestos/gestionar");
     }
 
+    public function hacer()
+    {
+        if (isset($_POST)) {
+            $Repuestos = isset($_POST['Repuestos']) ? $_POST['Repuestos'] : false;
+            $Total = isset($_POST['Total']) ? $_POST['Total'] : false;
+            $Fecha = isset($_POST['Fecha']) ? $_POST['Fecha'] : false;
+            $Garantia = isset($_POST['Garantia']) ? $_POST['Garantia'] : false;
+            $Vehiculo_id = isset($_POST['Vehiculo_id']) ? $_POST['Vehiculo_id'] : false;
+
+            if ($Repuestos && $Total && $Fecha && $Garantia && $Vehiculo_id) {
+                $repuestos = new Repuestos();
+                $repuestos->setRepuestos($Repuestos);
+                $repuestos->setTotal($Total);
+                $repuestos->setFecha($Fecha);
+                $repuestos->setGarantia($Garantia);
+                $repuestos->setVehiculoId($Vehiculo_id);
+                $Save = $repuestos->Save();
+
+
+
+                if ($Save) {
+                    $_SESSION['Agregado'] = "El repuesto se ha agregado correctamente";
+                }
+            }
+        }
+        header("Location:" . Base_url . "cotizacion/crear");
+    }
+
+
     public function ver()
     {
         if (isset($_GET['id'])) {

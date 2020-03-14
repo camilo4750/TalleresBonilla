@@ -95,4 +95,16 @@ class Servicio
 
         return $editado;
     }
+
+    public function delete()
+    {
+        $Sql = "DELETE FROM servicio WHERE Id = {$this->Id}";
+        $delete = $this->db->query($Sql);
+
+        $Eliminado = false;
+        if ($delete) {
+            $Eliminado = true;
+        }
+        return $Eliminado;
+    }
 }

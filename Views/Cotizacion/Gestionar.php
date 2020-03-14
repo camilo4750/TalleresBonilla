@@ -18,14 +18,7 @@ require_once 'Views/sidebar.php';
                 <i class="fas fa-table"></i>
                 Tabla Cotizaciónes</div>
             <div class="card-body">
-                <?php if (isset($_SESSION['Agregado'])) : ?>
-                    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-                        <strong><?=$_SESSION['Agregado']?></strong>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                <?php endif; ?>
+
                 <?php if (isset($_SESSION['Editado'])) : ?>
                     <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
                         <strong><?=$_SESSION['Editado']?></strong>
@@ -105,5 +98,5 @@ require_once 'Views/sidebar.php';
             </div>
             <div class="card-footer small text-muted"></div>
         </div>
+        <?php require_once 'Views/footer.php'; ?>
     </div>
-<?php require_once 'Views/footer.php'; ?>

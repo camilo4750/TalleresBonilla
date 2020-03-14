@@ -77,4 +77,16 @@ class Modelo
         }
         return $guardado;
     }
+
+    public function delete()
+    {
+        $Sql = "DELETE FROM modelo WHERE IdM = {$this->IdM}";
+        $delete = $this->db->query($Sql);
+
+        $Eliminado = false;
+        if ($delete) {
+            $Eliminado = true;
+        }
+        return $Eliminado;
+    }
 }

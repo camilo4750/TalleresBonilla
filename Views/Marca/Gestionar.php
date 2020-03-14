@@ -35,7 +35,7 @@ require_once 'Views/sidebar.php';
                     </div>
                 <?php endif; ?>
                 <?php if (isset($_SESSION['Borrado'])) : ?>
-                    <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+                    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
                         <strong><?=$_SESSION['Borrado']?></strong>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -59,7 +59,7 @@ require_once 'Views/sidebar.php';
                                 <td><?= $marca->Nombre ?></td>
                                 <td>
                                     <a href="<?=Base_url?>marca/crear&id=<?=$marca->idMarca?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                    <a href="<?=Base_url?>marca/delete&id=<?=$marca->idMarca?>" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="<?=Base_url?>marca/eliminar&id=<?=$marca->idMarca?>" class="btn btn-danger btn-sm" onClick=mi_alerta()><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                         <?php endwhile; ?>
@@ -79,5 +79,10 @@ require_once 'Views/sidebar.php';
             </div>
             <div class="card-footer small text-muted"></div>
         </div>
+        <?php require_once 'Views/footer.php'; ?>
     </div>
-<?php require_once 'Views/footer.php'; ?>
+<SCRIPT LANGUAGE="JavaScript">
+    function mi_alerta () {
+        alert ("Esta seguro de eliminar esta Marca.? recuerde que si esta Marca esta en uso no podra ser eliminada");
+    }
+</SCRIPT>

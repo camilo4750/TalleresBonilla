@@ -37,15 +37,6 @@
                 <article class="fondo">
                     <img src="<?=Base_url?>assets/Img/tuerca.png" class="img-fluid" alt="Responsive image">
                     <h3>Talleres Bonilla</h3>
-                    <?php if (isset($_SESSION['Error_Login'])) : ?>
-                        <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-                            <strong><?= $_SESSION['Error_Login'] ?></strong>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    <?php endif; ?>
-                    <?php Utilidades::DeleteSession(); ?>
                     <form action="<?= Base_url ?>registro/login" method="post">
                         <span><i class="fas fa-users"></i></span><input class="inp" type="text" name="Email" required><br>
 
@@ -59,7 +50,7 @@
     </div>
 </div>
 
-    <?php if (!isset($Registro)) :?>
+    <?php if (is_object($Registro) && $Registro->Total == 0) :?>
         <button type="button" class="btn btn-success mb-3" style="height: 50px; width: 200px; margin-left: 650px" data-toggle="modal" data-target="#exampleModalScrollable">
             Agregar Usuario
         </button>

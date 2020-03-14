@@ -28,7 +28,7 @@ class PersonaController
     public function session()
     {
         $usuario = new Registro();
-        $Registro = $usuario->All();
+        $Registro = $usuario->AllR();
         require_once 'Views/session.php';
     }
 
@@ -89,6 +89,34 @@ class PersonaController
             }
         }
         header("Location:" . Base_url . "persona/gestionar");
+    }
+
+    public function hacer()
+    {
+        if (isset($_POST)) {
+            $Nombres = isset($_POST['Nombres']) ? $_POST['Nombres'] : false;
+            $TipoDoc = isset($_POST['TipoDoc']) ? $_POST['TipoDoc'] : false;
+            $Documento = isset($_POST['Documento']) ? $_POST['Documento'] : false;
+            $Numero = isset($_POST['Numero']) ? $_POST['Numero'] : false;
+            $Direccion = isset($_POST['Direccion']) ? $_POST['Direccion'] : false;
+            $Municipio_Id = isset($_POST['Municipio_Id']) ? $_POST['Municipio_Id'] : false;
+
+            if ($Nombres && $TipoDoc && $Documento && $Numero && $Direccion && $Municipio_Id) {
+                $persona = new  Persona();
+                $persona->setNombres($Nombres);
+                $persona->setTipoDoc($TipoDoc);
+                $persona->setDocumento($Documento);
+                $persona->setNumero($Numero);
+                $persona->setDireccion($Direccion);
+                $persona->setMunicipioId($Municipio_Id);
+                $Save = $persona->Save();
+
+                if ($Save) {
+                    $_SESSION['Agregado'] = "La Persona se ha agregado correctamente";
+                }
+            }
+        }
+        header("Location:" . Base_url . "cotizacion/crear");
     }
 
     public function ver()
