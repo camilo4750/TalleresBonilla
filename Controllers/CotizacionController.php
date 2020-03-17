@@ -5,6 +5,12 @@ class CotizacionController
 {
     public function crear()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $Editar = true;
             $id = $_GET['id'];
@@ -17,6 +23,12 @@ class CotizacionController
 
     public function gestionar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         $cotizacion = new Cotizacion();
         $Cotizacion = $cotizacion->All();
         require_once 'Views/Cotizacion/Gestionar.php';
@@ -24,6 +36,12 @@ class CotizacionController
 
     public function save()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_POST)) {
             $N_Serial = isset($_POST['N_Serial']) ? $_POST['N_Serial'] : false;
             $Labor = isset($_POST['Labor']) ? $_POST['Labor'] : false;
@@ -67,6 +85,12 @@ class CotizacionController
 
     public function ver()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $cotizacion = new Cotizacion();

@@ -5,6 +5,12 @@ class ServicioController
 {
     public function crear()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $Editar = true;
             $id = $_GET['id'];
@@ -17,6 +23,18 @@ class ServicioController
 
     public function gestionar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         $servicio = new Servicio();
         $Servicio = $servicio->All();
         require_once 'Views/Servicio/Gestionar.php';
@@ -24,6 +42,13 @@ class ServicioController
 
     public function save()
     {
+
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_POST)) {
             $Nombre = isset($_POST['Nombre']) ? $_POST['Nombre'] : false;
             $Descripcion = isset($_POST['Descripcion']) ? $_POST['Descripcion'] : false;
@@ -55,6 +80,10 @@ class ServicioController
 
     public function eliminar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }
+
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $servicio = new Servicio();

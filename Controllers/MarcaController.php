@@ -5,6 +5,12 @@ class MarcaController
 {
     public function crear()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $Editar = true;
             $id = $_GET['id'];
@@ -17,6 +23,12 @@ class MarcaController
 
     public function gestionar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         $marca = new Marca();
         $Marca = $marca->All();
         require_once 'Views/Marca/Gestionar.php';
@@ -24,6 +36,12 @@ class MarcaController
 
     public function save()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_POST)) {
             $Nombre = isset($_POST['Nombre']) ? $_POST['Nombre'] : false;
 
@@ -53,6 +71,10 @@ class MarcaController
 
     public function eliminar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }
+
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $marca = new Marca();

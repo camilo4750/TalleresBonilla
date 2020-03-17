@@ -83,4 +83,20 @@ class Utilidades
         return $Repuestos;
     }
 
+    public static function isAdmin(){
+        if (!isset($_SESSION['Administrador'])){
+            header("Location:".Base_url);
+        }else{
+            return true;
+        }
+    }
+
+    public static function isUsuario(){
+        if (!isset($_SESSION['Usuario'])){
+            header("Location:".Base_url);
+        }else{
+            return true;
+        }
+    }
+
 }

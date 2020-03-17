@@ -5,6 +5,12 @@ class VehiculoController
 {
     public function crear()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $Editar = true;
             $id = $_GET['id'];
@@ -17,6 +23,12 @@ class VehiculoController
 
     public function gestionar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         $vehiculo = new Vehiculo();
         $Vehiculo = $vehiculo->All();
         require_once 'Views/Vehiculo/Gestionar.php';
@@ -24,6 +36,12 @@ class VehiculoController
 
     public function save()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_POST)) {
             $Placa = isset($_POST['Placa']) ? $_POST['Placa'] : false;
             $Color = isset($_POST['Color']) ? $_POST['Color'] : false;
@@ -61,6 +79,12 @@ class VehiculoController
 
     public function hacer()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_POST)) {
             $Placa = isset($_POST['Placa']) ? $_POST['Placa'] : false;
             $Color = isset($_POST['Color']) ? $_POST['Color'] : false;
@@ -86,6 +110,12 @@ class VehiculoController
 
     public function ver()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $vehiculo = new Vehiculo();
@@ -97,6 +127,11 @@ class VehiculoController
 
     public function inactivar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
 
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
@@ -110,6 +145,12 @@ class VehiculoController
 
     public function activar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $vehiculo = new Vehiculo();

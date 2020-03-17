@@ -10,6 +10,12 @@ class PersonaController
 
     public function index()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         $persona = new Persona();
         $Total = $persona->total();
 
@@ -34,6 +40,12 @@ class PersonaController
 
     public function crear()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $Editar = true;
             $id = $_GET['id'];
@@ -46,6 +58,12 @@ class PersonaController
 
     public function gestionar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         $persona = new Persona();
         $Persona = $persona->All();
         require_once 'Views/Persona/Gestionar.php';
@@ -53,6 +71,13 @@ class PersonaController
 
     public function save()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
+
         if (isset($_POST)) {
             $Nombres = isset($_POST['Nombres']) ? $_POST['Nombres'] : false;
             $TipoDoc = isset($_POST['TipoDoc']) ? $_POST['TipoDoc'] : false;
@@ -93,6 +118,12 @@ class PersonaController
 
     public function hacer()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_POST)) {
             $Nombres = isset($_POST['Nombres']) ? $_POST['Nombres'] : false;
             $TipoDoc = isset($_POST['TipoDoc']) ? $_POST['TipoDoc'] : false;
@@ -121,6 +152,12 @@ class PersonaController
 
     public function ver()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $persona = new Persona();
@@ -132,6 +169,11 @@ class PersonaController
 
     public function inactivar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
 
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
@@ -145,6 +187,12 @@ class PersonaController
 
     public function activar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $persona = new Persona();

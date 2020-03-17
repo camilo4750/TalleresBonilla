@@ -6,6 +6,12 @@ class ProveedorController
 
     public function crear()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $Editar = true;
             $id = $_GET['id'];
@@ -19,6 +25,12 @@ class ProveedorController
 
     public function gestionar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         $proveedor = new  Proveedor();
         $prov = $proveedor->All();
         require_once 'Views/Proveedor/Gestionar.php';
@@ -26,6 +38,12 @@ class ProveedorController
 
     public function save()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_POST)) {
             $Razon = isset($_POST['Razon_Social']) ? $_POST['Razon_Social'] : false;
             $Nit = isset($_POST['Nit']) ? $_POST['Nit'] : false;
@@ -65,6 +83,12 @@ class ProveedorController
 
     public function ver()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $proveedor = new Proveedor();
@@ -77,6 +101,11 @@ class ProveedorController
 
     public function inactivar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
 
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
@@ -90,6 +119,12 @@ class ProveedorController
 
     public function activar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $proveedor = new Proveedor();

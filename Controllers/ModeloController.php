@@ -1,10 +1,17 @@
 <?php
 require_once 'Models/Modelo.php';
+
 class ModeloController
 {
     public function crear()
     {
-        if (isset($_GET['id'])){
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
+        if (isset($_GET['id'])) {
             $Editar = true;
             $id = $_GET['id'];
             $modelo = new Modelo();
@@ -16,43 +23,59 @@ class ModeloController
 
     public function gestionar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         $modelo = new Modelo();
-        $Modelo  = $modelo->All();
+        $Modelo = $modelo->All();
         require_once 'Views/Modelo/Gestionar.php';
     }
 
     public function save()
-{
-    if (isset($_POST)){
-        $Modelo = isset($_POST['Modelo']) ? $_POST['Modelo'] : false;
+    {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
 
-        if ($Modelo){
-            $modelo = new Modelo();
-            $modelo->setModelo($Modelo);
+        if (isset($_POST)) {
+            $Modelo = isset($_POST['Modelo']) ? $_POST['Modelo'] : false;
 
-            if (isset($_GET['id'])){
-                $id = $_GET['id'];
-                $modelo->setIdM($id);
-                $Editado = $modelo->Update();
-            }else{
-                $Save = $modelo->Save();
-            }
+            if ($Modelo) {
+                $modelo = new Modelo();
+                $modelo->setModelo($Modelo);
+
+                if (isset($_GET['id'])) {
+                    $id = $_GET['id'];
+                    $modelo->setIdM($id);
+                    $Editado = $modelo->Update();
+                } else {
+                    $Save = $modelo->Save();
+                }
 
 
-            if ($Save){
-                $_SESSION['Agregado'] = "La Marca se ha agregado correctamente";
-            }
+                if ($Save) {
+                    $_SESSION['Agregado'] = "La Marca se ha agregado correctamente";
+                }
 
-            if ($Editado){
-                $_SESSION['Editado'] = "La Marca se ha editado correctamente";
+                if ($Editado) {
+                    $_SESSION['Editado'] = "La Marca se ha editado correctamente";
+                }
             }
         }
+        header("Location:" . Base_url . "modelo/gestionar");
     }
-    header("Location:" . Base_url . "modelo/gestionar");
-}
 
     public function eliminar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }
+
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $modelo = new Modelo();

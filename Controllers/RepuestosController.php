@@ -5,6 +5,12 @@ class RepuestosController
 {
     public function crear()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $Editar = true;
             $repuestos = new Repuestos();
@@ -17,6 +23,12 @@ class RepuestosController
 
     public function gestionar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         $repuestos = new Repuestos();
         $Repuestos = $repuestos->All();
         require_once 'Views/Repuestos/Gestionar.php';
@@ -24,6 +36,12 @@ class RepuestosController
 
     public function Save()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_POST)) {
             $Repuestos = isset($_POST['Repuestos']) ? $_POST['Repuestos'] : false;
             $Total = isset($_POST['Total']) ? $_POST['Total'] : false;
@@ -43,7 +61,7 @@ class RepuestosController
                     $id = $_GET['id'];
                     $repuestos->setIdR($id);
                     $Editado = $repuestos->Update();
-                }else{
+                } else {
                     $Save = $repuestos->Save();
                 }
 
@@ -61,6 +79,12 @@ class RepuestosController
 
     public function hacer()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_POST)) {
             $Repuestos = isset($_POST['Repuestos']) ? $_POST['Repuestos'] : false;
             $Total = isset($_POST['Total']) ? $_POST['Total'] : false;
@@ -78,7 +102,6 @@ class RepuestosController
                 $Save = $repuestos->Save();
 
 
-
                 if ($Save) {
                     $_SESSION['Agregado'] = "El repuesto se ha agregado correctamente";
                 }
@@ -90,6 +113,12 @@ class RepuestosController
 
     public function ver()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $repuestos = new Repuestos();
@@ -101,6 +130,11 @@ class RepuestosController
 
     public function inactivar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
 
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
@@ -114,6 +148,12 @@ class RepuestosController
 
     public function activar()
     {
+        if (isset($_SESSION['Administrador'])){
+            Utilidades::isAdmin();
+        }elseif (isset($_SESSION['Usuario'])){
+            Utilidades::isUsuario();
+        }
+
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $repuestos = new Repuestos();

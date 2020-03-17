@@ -66,7 +66,7 @@ require_once 'Views/sidebar.php';
                                 <td><?= $repuestos->Fecha ?></td>
                                 <td><?= $repuestos->Garantia ?></td>
                                 <?php if ($repuestos->Estado == 'Activo') : ?>
-                                    <td class="text-success"><?= $repuestos->Estado ?></td><i class="fas fa-bell"></i></a>
+                                    <td class="text-success"><?= $repuestos->Estado ?></td></a>
                                 <?php else : ?>
                                     <td class="text-danger"><?= $repuestos->Estado ?></td>
                                 <?php endif; ?>
